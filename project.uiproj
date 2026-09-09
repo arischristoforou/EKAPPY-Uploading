@@ -1,0 +1,6 @@
+{
+  "Name": "EKAPY Uploading using REF (DT version)",
+  "ProjectType": "Process",
+  "Description": "Uploads all the pdf files from a specific directory to the EKAPY platform, using the REF (DT version)",
+  "MainFile": "Main.xaml"
+}

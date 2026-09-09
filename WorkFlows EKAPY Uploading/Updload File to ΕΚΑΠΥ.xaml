@@ -1,0 +1,441 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Updload_File_to_ΕΚΑΠΥ" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DocCategory" Type="InArgument(x:String)" />
+    <x:Property Name="io_OrderNumber" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_FolderRejectedPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_CurrentFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_EkapyApplicationPendingDocumentsWidthURL" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1108.8,5122.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <uix:NApplicationCard WebDriverMode="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow the io_OrderNumber.pdf document is uploaded in EKAPY platform. &#xA;The type of the document is specified by the in_DocCategory variable.&#xA;In case the uploading is not successful, the the document is moved to in_FolderPath\&quot;ΕΚΑΠΥ Αποτυχίες&quot;\&#xA;In case the io_OrderNumber cannot be found in the EKAPY list, then the document is moved to in_FolderPath\&quot;ΕΚΑΠΥ Αποτυχίες&quot;\ as OrderNumber&quot;_notFounInEKAPYsTable&quot;.pdf" AttachMode="ByInstance" DisplayName="Use Browser Firefox: Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ" sap:VirtualizedContainerService.HintSize="1119.2,5097.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V2">
+    <uix:NApplicationCard.Body>
+      <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1085.6,4803.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ui:UiElement" Name="ElementFound" />
+            <Variable x:TypeArguments="x:String" Name="tableRowIndex" />
+            <Variable x:TypeArguments="x:Boolean" Default="False" Name="OrderNumberNotFoundInTable" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch sap2010:Annotation.AnnotationText="In case that the OrderNumber variable is not identified in EKAPY's pending document page, then a timeout occurs and the string &quot;io_orderNumber&quot; is set to &quot;NotFound&quot;. " DisplayName="Try Catch - Locate the OrderNumber variable in EKAPY's pending document page" sap:VirtualizedContainerService.HintSize="1044,506.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="A specific OrderNumber is located in a web table through the selector's innertext&#xA;&#xA;Note for the developer: Εάν δεν παρουσιαστεί πρόβλημα μέχρι την τελική ανάπτυξη της συγκεκριμένης εργασίας, τότε να διαγραφεί." DisplayName="Locate the OrderNumber variable in a table" sap:VirtualizedContainerService.HintSize="333.6,215.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                <ui:WaitUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbb95f97-0a7e-4703-8241-da1a5edad729" InformativeScreenshot="f52b26a48b9bd88df1ce0a8e9621e686" Selector="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl innertext='{0}' tag='TD' /&gt;&quot;, io_orderNumber)]">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitUiElementAppear.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WaitUiElementAppear>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="ui:ActivityTimeoutException" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="ui:ActivityTimeoutException">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:ActivityTimeoutException" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="375.2,288.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="333.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[OrderNumberNotFoundInTable]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;the Order Number &quot; + io_orderNumber + &quot; not found in EKAPY's table&quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <If Condition="[OrderNumberNotFoundInTable = False]" DisplayName="Do not upload file in case the order number is not found" sap:VirtualizedContainerService.HintSize="1044,4162.4" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="524.8,4001.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NGetAttribute sap2010:Annotation.AnnotationText="The attrubute &quot;tableRow&quot; is located in a web table through the selector's innertext &quot;OrderNumber&quot;" Attribute="tableRow" DisplayName="Get the &quot;tableRow&quot; attribute related to the OrderNumber" sap:VirtualizedContainerService.HintSize="483.2,252" sap2010:WorkflowViewState.IdRef="NGetAttribute_1" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NGetAttribute.Result>
+                    <OutArgument x:TypeArguments="x:String">[tableRowIndex]</OutArgument>
+                  </uix:NGetAttribute.Result>
+                  <uix:NGetAttribute.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="259, 543, 94, 36" ElementType="Text" FriendlyName="'0123-00611'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' innerText='{0}' tag='TD' tableCol='2' /&gt;&quot;, io_orderNumber)]" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' tag='TD' class='ng-binding'  check:innerText='{{OrderNumber}}' /&gt;" Guid="3ad70ad3-8db4-42bb-881c-578114a9e100" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGIAAAAoCAYAAAAFZi8EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAOPSURBVGhD7ZfPa9pgGMf7P0lBsETMtBRUMIxSRNpKWyljIDhB6EF2GbQ7CDl46SHQYYsHGezgocI8FFbKTm0PFnoIjA0sOShEGEIu371vfmiiprgN5rv2/cBrfd+8yfv0+SRPXpdAUFWV/uH8Y9x5X6Id3hbf+BOxQNx55yIWCBfBCFwEI3ARjMBFMAIXwQhcBCNwEYzARTACF8EIXAQjcBGMwKgIA4P+gHzOz7CvYTDjBGOgoT+0O49hDNCfdYHHYvE95/dhToTRUZCNCYhEIxASB2j37AP6HeqHu0iFlpFv2mOE8fwohJCI7Id760DvCkfpiDkeFUIQXzXwwzoygYGOkkVMiCAaEZA4aMNZ0jcWMqNdTkAQyLXJObG9M1hZ03FXP8RuKoRld5C+42MYE6GjkQuj1Lbusl5tCysHF+Z3evdp3S5O9wMeEb32R7Q0+67s1bC1XECLfjc6+HLlZK6DSnwFzqU86A3kwiVYS/ZQ23Lm+ceiN/MI79RgLWtA00bqMNC66J7uI+BJuN/4GMZENJEP5MmnzYOCdLxC0jimmfeK8ELPz6Hx0+46GFd4+2IVRzd23w1Jqjs5D0oa8Qpd0S8WHfUdH6kOE9cc4TdOYEuEWoWUlGEXF8JEMgiPiTDaJYTTCr7bfeAaJ8XXyMQSyJ11ZtZ5tSohKY9XHCXLN5Z7yEkJ7+oy9uKkNEVfojyuWRbPWkSPzBUlyB13uofoq19xflxAIlZAk+br4Rzvi0UUaTu5/kMRQazLt+TqRL5Ww06QPIW6NcvkvxdBqnth2ZV4mox5ShN5H8iSSMYn7kwXnUrcSrj9runSRrdTrYLnBUrFWKXJLxYVVSkOc4oJFZOE2+UTEDH9ggyXL83vDlMiiITqegiS7C09+kUdn745I0O03qxAqs7436Ze1mFYS/rHcnO0iiQxYR4x2iiFn9wTQfOqYFMUsZFJQXDKCUFVtkk9JlvUYABBum2MlvGZjF+WwwgEghDoNtVu24qK4e3xaFtLt5hCugpP1RpBt6+bEMUNZFJkK1poeravs2Kh8pXNGGKZXWTW1pBVbCmqgm26nhBEICiYsZRpkH7jLpgTYUFqe7dv1uC/w9o2avP86Br2rVI1hX8sw353vh+Lc8CoiOcHF8EIXAQjcBGMwEUwAhfBCFwEI3ARjMBFMAIXwQhcBCNwEYzgEUE7vC2+8SdigbjzzkUskHHegV9jZTXuzqhbmAAAAABJRU5ErkJggg==" InformativeScreenshot="6d54d8bf624fccd2a8eac96e7d442c53.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="Selector" />
+                  </uix:NGetAttribute.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NGetAttribute>
+                <uix:NClick sap2010:Annotation.AnnotationText="Click the button indicated by the selector's attribute tableRow, which is set equal to tableRowIndex variable&#xA;&#xA;The UiPath Properties were modified:&#xA;1. Target-&gt;Element visibility = None&#xA;2. Target-&gt; Targeting methods = Strict selector" ClickType="Single" DisplayName="Click the uploading button" sap:VirtualizedContainerService.HintSize="483.2,265.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="1872, 444, 11, 12" FriendlyName="'I'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ui-view&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;a&amp;gt;i' tableRow='{0}' tag='I' tableCol='11' /&gt;&quot;, tableRowIndex)]" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='fa fa-upload' tag='I' aaname='' /&gt;" Guid="42de0959-e1b7-41e6-9faa-253689b2e382" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADHSURBVDhPxc+9C4JAGAbw/uDWRsf2mpocXCIKoclBKsIMCxwKxEk6KgtqSIrQwo4n/Iq8tEAIH3iWe+93L1ep1jgU7X8w1zNwdFaQWtnzoJk4gKcHwtAryX3gA7/DJHkPMHgIy48FE3rQ0Uzdzf2ziMUlVls1Yx61bFzvQ7U2IOuoS1kAL2kYTzTIooD2bPWaEWOERgp3TJzjRWGoD8/14Ab1fND4OMoOg6+YyY0omO4Be67AurOY12Enm37VMdFN4YItC3N4AjJnoTh3brYxAAAAAElFTkSuQmCC" InformativeScreenshot="1138a20d3c6e8e127695c6fc1993414b.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="Selector">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="1820, 272, 84, 29" ElementType="Button" FriendlyName="'ΑΝΑΖΗΤΗΣΗ'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn bg-light-blue-gradient btn-flat' aaname='ΑΝΑΖΗΤΗΣΗ' check:innerText='ΑΝΑΖΗΤΗΣΗ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAhCAYAAABduGw9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARUSURBVGhD7ZrtT1tlGIf9w9QYjdFIjMviYjTGZQb1TzAxUz+wgVkysBsD5hw6N9iXsVGCGatA38jKoJSXwSinpbx2tOeUduv7oYyf9+l5Lc+E1hy+PR+upM/93L/nuXudk/KFN3bENDgnBxd8whiC37w8yrERRvC3d0McG2EEN/fPcGyEEfx1X5BjI4zgc3eCHBthBJ+9Pc2xEUbwV39NcWyEEfzlrSmOjTCCv/jzCcdGGMGf/zHJsRFG8Ge9k43jiiMkZjDoMmtt8xkIa1v4wehbg0cU0WustZ7NONqMWhiDmzkIohXtXOWOmt5J9Ao5eAL0OSAeyqgoe8odofmwkbHOUb3/UEbvPSpn1o6HEXzmZqBhWiNliLkyEpFlo9a5voe9fRlzkzNa7TlWkceQtn/m5jI8WTXneaTXZvD9yDLaXCo9kSL2Mgn8pOz5dpEp7qLTyAcwJAGrC/T53qKWSWIdBYxq+R/vqXNk1qNGpmaOv+lzuQjvhHlni1Od98hcAzCCP/39cYM8I1FFuLwiEjkJl7S6MuDWRhqJrKjV4tUBnXpuhPpJXmekBDEa1s6y4NyGsEfnDmtrrybY0uOsCjbXzB2EKirynz3f+Xch5XbRfdfMKByXqxdG8OkbjxtDEUUSL9wIw0dvo8+l1q+s0YBrUfTvVBB7uki1OKI04KCWuyCUkBCe4bRLordYwi/6eVUWMJDcp/2wWfOQYDkP/+JzDGvMZ4EoCTZztXcoKHMUUpKRGV58geShnvMLeWSkOM5bavXk6oERfOr6REO00c9DeiOGlodL6N2QIdLPhFJ3rMkkWMCpoThipZfo69vCykEOD6q5ZXhzMoKBJcrFECyU4X1kntk8/RKFvASHtq7iTqmCn9KX1ZhTBM9beq5vk2D9DhVljoJEooxchkTV9jR7U/SQU7jW11iuHhjBn/RMNACJyu5DlLIIJwipjBK9za2054jJSMeEal/rSgmp2DYCBRpQydFbL1bKWFUyxGqOzqAHUz3zTgyzJRkT49Z7iPEU0oUUHJbaA5EEz1l6ejTBlh7rHK/toZ+iaJHWTn1f5dhcnTCCP+721w+JStKX7jBqUUyX6Y/WiB8d1QFX1PrtVYTytJZzuE/riwK99fqegj+NLD2Yi91TuEpvTioWwTl9T0cTbN7lx30SHJmz9HRvI0ISlDv0Ws0cTM8CHqb3sRKateyrHJ2rH0ZwU5evblpIVHYjWlP7bbOCpLCEdm1AvX72yQuUaMCBriW4sxVM+8xMUxc9ALkMdzCJHRxAlivIl3WKGPuHesZUwe1GxocBRfCsuW7q2qpKGLD0HJ7D2vPzchGvDl6hYNxFZJK4dEzOrB0PI/ijaz6OjTCCP+z0cmyEEfzBVQ/HRhjB719xc2yEEfyew82xEUbwu7+Oc2yEEfxOxxjHRhjBb7ePcWyEEfzW5VGOjTCCX/ffKZz/DyP4m/4Zjo0wgjknAxd8oqTxLxiRZ86Rb0kTAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick sap2010:Annotation.AnnotationText="The UiPath Properties were modified:&#xA;1. Target-&gt; Targeting methods = Strict selector&#xA;2. Options-&gt; Input mode = Window Messages&#xA;" ClickType="Single" DelayBefore="1" DisplayName="Click 'Επιλέξτε τύπο εγγράφου'" sap:VirtualizedContainerService.HintSize="483.2,233.6" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="770, 613, 370, 28" ElementType="DropDown" FriendlyName="'--- Επιλέξτε'" FullSelectorArgument="&lt;webctrl id='documentType' tag='SELECT' innertext='--- Επιλέξτε τύπο εγγράφου-- Δελτίο ΠαραγγελίαςΠρακτικό Παραλαβής' /&gt;" FuzzySelectorArgument="&lt;webctrl id='documentType' tag='SELECT' type='' class='form-control' aaname='' /&gt;" Guid="871ad67c-9a4a-4f86-9862-efc9f82aef7f" ImageBase64="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" InformativeScreenshot="46564abaeb00be07d7a369cd06f41d50.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="Selector" Visibility="Visible" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick sap2010:Annotation.AnnotationText="The UiPath Properties were modified:&#xA;1. Target-&gt; Targeting methods = Strict selector&#xA;2. Options-&gt; Input mode = Hardware Events&#xA;" ClickType="Single" DisplayName="Click 'Δελτίο Παραγγελίας'" sap:VirtualizedContainerService.HintSize="483.2,233.6" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="11, 34, 358, 24" FriendlyName="'Δελτίο Παραγγελίας'" FullSelectorArgument="[String.Format(&quot;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, in_DocCategory)]" FuzzySelectorArgument="&lt;ctrl name='Δελτίο Παραγγελίας' role='list item' automationid='' check:text='Δελτίο Παραγγελίας' /&gt;" Guid="8d022d50-f52c-4e5a-813d-1a493b4f2221" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWoAAAAcCAYAAABI1PWLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMjSURBVHhe7ZnLjdswEEDTpCrIUS3sMaohZ1WiTow9JYdUsLkwnBFJcSitRRpJQMvvAYRN8T8LPM9SX1zg589f7v39B4VCoVA6KOLkSBL1x8dvZE2hUCgdFHGxODmSRA0AAH2CqAEAOgdRAwB0DqIGAOgcRA0A0DmIGgCgcxA1AEDn9CXqZXLDOLtbqL4it3l0w7SEGgDAA6JWkQyjm89sepvdOAy+7+BqvSNzj6cTZ4jYwxqm9Cy6k7gsU328AOA1aBT1zc3j6KapQagqpsnVuGfx87Z4+jADl2fPYLrDuEh862IFAK9Dm6hFLiLG+Bken1GXJd78vOFrLc8sas8+Lg/EAAAuT5Oot6uJNbPOs1+Rznb9kGeF0tc/i0I9vK6Q/oubzJVKGBf6HGbwFaLe9iVzF2uYvdhM9mjctzdfN+ute/xa7i/LlqvjIpRZttbDWH8mc3+dt/k5AOC6NIjaytncJx8IZo4VFaevF2LXMUZ6VqIiuE1+0naQlZ+IWsWW2tc5Ur3Yc9733jjZ17YPaZM54mcg7qE1Lqa/PbPuKdWlLftbLIga4MrUi7oUa1kX8YjQ8ozVE8VmxC6U4418CvF5VFSbIVfuinrNWPMh+RyH+9E174/TfnHNtJadz8i8JS5pD57d2bL4HJ0bAC5Ltah3YqsRRy61UsxlXefLs8m/IWorx/wMu/MkSd4fJ6wvPct+fs+yl/xcrXEpx5rzZjHZtQHAlakW9e7qwpOuJ3ZCWl+KpfbwzGSquZQUK2c7VtpslqsciTCTmMyxCc2ur+LPxuZ9741T/Bqjj0cpSxH4mPdtjUsp7TwLN3N9Eg8AuCTVok4vrsoS5KFyS89HN31/858HWXEhm+1KYBXWNibW15JntIkTUW9rhHVm3ybffbtmyZMXbmw383w+TlGJ2rMJer7Cnm1xCeuGvejzOFbvs9c5NBS6h9hW7gQArkTDy8RroaI+kn8VItS9qO2PxH8iZOEAcF1eWtQPS7Uho/63rP91PP6DAwDPwMuKGgDgWUDUAACdg6gBADoHUQMAdA6iBgDoHEQNANA5iBoAoGuc+wPcQ5sjQMaKUwAAAABJRU5ErkJggg==" InformativeScreenshot="a6661f9c453742b51df8c02f94fb7e80.png" ScopeSelectorArgument="&lt;wnd app='firefox.exe' cls='MozillaWindowClass' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ — Mozilla Firefox' /&gt;" SearchSteps="Selector" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <uix:NClick sap2010:Annotation.AnnotationText="" ClickType="Single" DisplayName="Click 'ΕΠΙΛΟΓΗ'" sap:VirtualizedContainerService.HintSize="483.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="962, 663, 107, 37" ElementType="Button" FriendlyName="'ΕΠΙΛΟΓΗ'" FullSelectorArgument="&lt;webctrl aaname='ΕΠΙΛΟΓΗ' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ΕΠΙΛΟΓΗ' tag='BUTTON' type='' class='confirm' check:innerText='ΕΠΙΛΟΓΗ' /&gt;" Guid="5f51db63-e033-4fe6-8acd-94653a599897" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAApCAYAAAA7xHcRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALdSURBVHhe7ZzPSxtBFIDzrwn+Ex49evMmKOJd8KBQD0IRxEORKgSLtLUXW1u0aAtBU2qghrZapbVSo9GYH1O/KTPMxs3Wimn3NW/hIzvvzY6z+zGzYeNspmEaplavmUqtYs6r56Z8WVZSCn7whC+8Zdg5uTgxu993zfbhtsl9ySkpBT94whfeMpgsHhdN170uRQj4wluGoYhRgt33u5WUgyd84S3DXJo7yKk8IeAJX3j7Je9qPlV5MrDyrnypPIGoPMGoPMGoPMGoPMGoPMGoPMGoPMGoPMGkQt7A4wEz9HQoQl+2z+Z6H/Zeyzl6HvTYOnxSDtt0MY4P447h5WGzsL1gYb85n9Qncs3tUiYextpNKuQdlY/sw9VSpeRZLizb3FxuztQb9UgO2Eafj9o6fLKFbc68mbHHbXzeiMRh5cOKzRW+FSzVetWed1gnqU/k6FdYnzLxMNZuUiOv+WI4Wl0UtiR5nAfiTiunkfj05rQVN/ZizMcYMfysks1nfSypTyovoB3ykDH4ZNDKm1yb9HF+wIwbjavFVbN/su/LKu+GcNKbe5v+HjT7dtbnbiOP0eWO4XzWP6373PH5cawUjgnbiBMU5sL+AuW4fraT1Mjb+7Fn8od5y9rHNZ+7jTxGlhOGFP5VwOWYMuOkNLfxO3lhf4Fyx8prdaFuIy+cKvnWiTBXl7YW3y36ug7+DlOtKyf1KS7Xqp/t5L+TN/FqIiIBuM9xT2Of86Mc5mHrYMvsfN3xZZV3Q+5SHtNlKAEYaa6NkWcjdiQuvV/y+fmt+cjohKQ+xeU6Wl7z5gT8qby4C8u3TjbEUR5/OW5KFyU7QuHs8sxMvZ6KHBPXTlKuY+X9K/of9f/1pyJ3SUfLk47KE4zKE4zKE4zKE4zKE4zKE4zKE4zKE4zKE8x1ebo+TwxWnlufpytjZYEnvzKWJ+y6Jl0Wfk26vg1CDviJvA1C38MiB/zgCV8N0zA/ATWf+mprcMcdAAAAAElFTkSuQmCC" InformativeScreenshot="2302834d880cde6105ed7032beaa0479.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="483.2,420.8" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// On 29/8/2025 has been experienced an issue, which led to a non expected termination of the automation. The issue concerns the &quot;Δελτίο Παραγγελίας&quot; 0123-07062 &amp; 0123-07074 &amp; 0123-07388. The issue can been reproduced as described below: &#xA;In cases that the &quot;Πρακτικό Παραλαβής&quot; has been uploaded, but not the &quot;Δελτίο Παραγγελίας&quot;, then if the order lifecycle has been concluded, the late uploading of the &quot;Δελτίο Παραγγελίας&quot; is rejected with the message &quot;Δεν μπορείτε να επισεινάψετε το Δελτίο Παραγγελίας σε αυτή την κατάσταση παραγγελίας&quot;. The issue could have been avoided if the application would not allow the uploading of the &quot;Πρακτικό Παραλαβής&quot; in case the &quot;Δελτίο Παραγγελίας&quot; is not uploaded. The issue has been communicated to the application owner. A solution is expected." />
+                <uix:NClick ClickType="Single" DisplayName="Click 'Επιλογή'" sap:VirtualizedContainerService.HintSize="483.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="448, 265, 62, 29" ElementType="Text" FriendlyName="'Επιλογή'" FullSelectorArgument="&lt;webctrl name='file' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl name='file' tag='DIV' type='' class='btn btn-blue-light btn-flat' aaname=' Επιλογή ' check:innerText='Επιλογή' /&gt;" Guid="69dbc8fd-4b1e-48d0-bd2d-18609fb1e832" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAhCAYAAABtNH0cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJ9SURBVGhD7ZVRTxNBEMf9cn4JH332RV/0gcTEB03UGAWjiTHBGBIiiRJQIGgMwZCG0tMUylmhhy1YS2nTK6W0pUUY+x93zjs9aCHXQHK7yS/Z253d3vxudnuBdOPmEXHx1lSoMAzDIfQiLMtiQi/Ctm1Gi9AitAgHLUKhRSi0CIUWoThzEddeRGk0mqFHE8u+86chW6rRvbEl37mjCETE8Nwafc2WPfjF+XHz1RcWsV1r0tPppG/MSbj0cIaKOw3fueMIRMRcMk8xq0h9w4aDX9xxPPvwjdJbVd+5k3DleeRU1RWYCOAeezxl/lclAuan41m68ybuxKMyDg4POREZ658wqVBpUHm3Sa/n0zy2mCl5Kmc8ts6/hb2wJ+KqjRbF0yUnphsCE5HarHCJg/vjCbr85BNXBppUCRKSalnNVeiu6xxHUwXK2TV693mDnyGm0fpFN4ZivBfKHUcQEvLbdWddplDlfQDiRxcyfDwQc9sluhM9EyFz+MrSL1X3nL5bBF58p96iB28TLANj7xeztLT+96viSydVNSH5gUmTqwd3C8awl9V+B4nH/hAnz53o2dEQ3MkfJeJjIscVITGohllzkyIrW078SOQ7r5G+sVaksfaxwFqMYS+ZB+gjTp470VMReLluRKAakDz62AfJ4Yu745G4JC3/DEDulHMjorl/wJeUgPHBmVXPy9X29sn88ae8cZnly3V6OZvynHm3PFSJ3b5XfraPy0ZxlwVIHI4Qjo973ZmL6BYkcnVw3nm+PrTgmfcDF6V7jYBEcaf8Oy6caxFB0inR0IgIGi1CoUUotAiFFqHQIhRahEKLUECE4BER5qZFqKZFcCP6DdtgUJhhfB1fAAAAAElFTkSuQmCC" InformativeScreenshot="6dd71b0aae2813fd251191b9061106e2.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Όνομα αρ&amp;χείου'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="483.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Text="[in_CurrentFolderPath + io_orderNumber + &quot;.pdf&quot;]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="275, 511, 382, 20" ElementType="InputBox" FriendlyName="'Edit'" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="3fe797d9-8c42-4ada-a71b-a1ba576245e9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYIAAAAYCAYAAAD3cPoYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABoSURBVHhe7dUBAQAACMMg+5e+QQYluAGQJgKAOBEAxIkAIE4EAHEiAIgTAUCcCADiRAAQJwKAOBEAxIkAIE4EAHEiAIgTAUCcCADiRAAQJwKAOBEAxIkAIE4EAHEiAIgTAUCcCADStgd7djexQs9JwAAAAABJRU5ErkJggg==" InformativeScreenshot="cd03cf9641c682d58cf194d970309869.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='firefox.exe' cls='#32770' title='Φόρτωση αρχείου' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="157, 511, 108, 20" ElementType="Text" FriendlyName="'Όνομα αρ&amp;χείου'" FullSelectorArgument="&lt;wnd ctrlid='1090' title='Όνομα αρ&amp;amp;χείου:' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1090' title='Όνομα αρ&amp;amp;χείου:' check:text='Όνομα αρ&amp;amp;χείου:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAAYCAYAAAAiR3l8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKISURBVGhD7VfbrawwDKQq6kk3FEMv1EIHOUlsgx3bYO29uwgpHyMtxM8ZJ1mmfd/zwHsxBHw5hoAvxxDw5RgCvhxDwJdjCPhVbHmZp5xWa+3/4BBwTVOelw0XIPE0McxL3tB2IIo1py/zdgiYppTX+ntb8lwFS6swrAJPZDMQw5rYpvgOTgFbIth5XtImYifswLOQd2CZmMtd1nbnnJfNEZOt07ttmeVRbOzsfmC8d30My44j5NN6Pu34GtWu7VmPdGIdoDV7M/h80LUl+W89kI3BrxCwBb88s8uZXpK2S9kUu66fCaBYboNFMhEtEfp3rYmjLiJmEbl6hHwUIdAfr0/a9KLAM/+Tsi3JsY3woeNBfvQJCciLV2ACit8InqwT07YJCGgUDe+4QB2CPk3kvl/D96hHDa0W6US/FuHDimfwzPD5DizPSvDaIPmbO7RCNnIroBnniriCkI8XwyAMRZ2dnLCzyjAUuPFDfFg1wbuQgH4ShJgW/XxPfMUHAqqhum4q5mORVWEIiLa6H7DVMSq6+B/z4dUJkAJeFgTB5ZHDgpvi3h0ZNzEN+4ZGhl9nzMchxvJFWzUUrigVVh8xPmRNECe2AytaQN1YI9ooFo7dVD5YdRLto0kDG9YYEn2KiuQdzzixa6nTPe4jPmhj1CcH6qJH5Kp/B59kWowIH/1QwPGMz8YQaAEbYCfSuS4JdWyddX4/VFiDMafywUs2lWAkRgpAMagBJNsV8c6HyKv/TMmuQPUBcapIIGSXj2plOHqkYWQ+d3xoGyZ4XMDfoZ/S38GYfgNStCqmJPBpDAEvc2vBmqDuafR7DAEvcrc7S4mFx7C4y57D4wIO/BuGgC/HEPDV2PMfAGTPjy1O1tYAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Άνοιγμα'" sap:VirtualizedContainerService.HintSize="483.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="696, 543, 110, 33" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Άν&amp;amp;οιγμα' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Άν&amp;amp;οιγμα' check:text='unchecked' /&gt;" Guid="b8cae390-92ea-4f53-a5c7-1052f4e363bb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAlCAYAAACeVr0yAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIGSURBVHhe7ZbBkcMgDEXpiW6oZG+04lZcRc7pwB2wAQxGQp5kd9YzsvYf3sSADLYewnHbtiVwfyDSCBBpBCLSfT3AjSDuSEMIBnoh7khjD3g+n0AxEGkEiDQCRBoBIo0AkUaASCNApBGUiFxScD7FNV+vKXqXnI9pFWOBhA6Ra0w+LMe198l3seATVIhco09hqddLcMnHtfy6Jhe8RYXIg+GIzZXpQlqGcVFuiaPVmzeGc6/YBrmnHt15s/RjXNgwbUPxa2l87ONrSnFXoEvkEoZvY01yq9Q+zuTS72uTOMZwWaPI+f7GT0UWiezZfYzi3FegSiRPTpFCqiUnnckllStLoTFc5C5BqFp+3B/jrE84FWrfKPda9Ig8TQbtm+SOVSxWbGYUPIuc1intY563IsV1hXUuRI3I6bs2MCf9JMm/Fcn6uLiPRE6VR6v6apSIPN+9RTBJ0hDLpEoVfPS3OHmtvo6wGbI06ejtc/DnyJR55He6Ah0izwT0Mbqza9JDCsKOL0knSZ3FSRXW1snJl+ccnm+XxP9AHe39BFhec/6nb2RJ1OkL8yRl6p8e2nfAj+lJWhNB1jyfs4gPoYsu9zXxRN4+zo7x83f7O1SI1EEVIX3TxApWBkR2INIIEAkUAJFGgEgjQKQRINIIH4sE94C4Iw0hGOiFuBsb4L5ApBEg0gRb+gZ1ngnRarLpZwAAAABJRU5ErkJggg==" InformativeScreenshot="2b77a515711895fe4178ba2224c7e9fb.png" ScopeSelectorArgument="&lt;wnd app='firefox.exe' cls='#32770' title='Φόρτωση αρχείου' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NClick sap2010:Annotation.AnnotationText="The UiPath Properties were modified:&#xA;1. Target-&gt; Targeting methods = Strict selector&#xA;" ClickType="Single" DisplayName="Click 'ΕΠΙΣΥΝΑΨΗ ΥΠΟΓΕΓΡΑΜΜΕΝΟΥ'" sap:VirtualizedContainerService.HintSize="483.2,217.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="1045, 341, 284, 28" ElementType="Button" FriendlyName="'ΕΠΙΣΥΝΑΨΗ ΥΠΟΓΕΓΡΑΜΜΕΝΟΥ'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary-dark btn-sm mr-0' aaname='ΕΠΙΣΥΝΑΨΗ ΥΠΟΓΕΓΡΑΜΜΕΝΟΥ ΔΕΛΤΙΟΥ ΠΑΡΑΓΓΕΛΙΑΣ' check:innerText='ΕΠΙΣΥΝΑΨΗ ΥΠΟΓΕΓΡΑΜΜΕΝΟΥ ΔΕΛΤΙΟΥ ΠΑΡΑΓΓΕΛΙΑΣ' /&gt;" Guid="ce8fb2c2-9899-4d51-8e22-664cd843499e" ImageBase64="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" InformativeScreenshot="10b4624969518097aa264991f3bbb9ba.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="Selector" />
+                  </uix:NClick.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NClick>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[in_CurrentFolderPath + io_orderNumber + &quot;.pdf&quot;]" />
+                <TryCatch sap2010:Annotation.AnnotationText="In case that the uploading is not succesfull, then a timeout occurs and the string &quot;io_orderNumber&quot; is set to &quot;NotProcessed&quot;. " DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="483.2,413.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Find Element 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,138.4" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                      <ui:WaitUiElementAppear.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e196bfd3-53bd-4509-a305-bb4a60bb4fb8" InformativeScreenshot="f86f84366e6fc8471feaf112ff3805ae" Selector="&lt;webctrl css-selector='body&amp;gt;div' tag='DIV' innertext=' * ολοκληρώθηκε. *' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:WaitUiElementAppear.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:WaitUiElementAppear>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="ui:ActivityTimeoutException" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="ui:ActivityTimeoutException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:ActivityTimeoutException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="476.8,1366.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[&quot;the Order Number &quot; + io_orderNumber + &quot; has been rejected from the uploading&quot;]" />
+                          <uix:NTakeScreenshot DisplayName="Take Screenshot" FileName="[in_FolderRejectedPath + io_OrderNumber + &quot;.png&quot;]" FileNameMode="Index" sap:VirtualizedContainerService.HintSize="435.2,240" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V1" />
+                          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_FolderRejectedPath +  io_OrderNumber + &quot;.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="435.2,160" sap2010:WorkflowViewState.IdRef="MoveFile_2" Path="[in_CurrentFolderPath+ io_OrderNumber + &quot;.pdf&quot;]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="435.2,61.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[io_OrderNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">NotProcessed</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'ΚΛΕΙΣΙΜΟ' - window &quot;ΠΡΟΣΟΧΗ&quot; " sap:VirtualizedContainerService.HintSize="435.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/100" DesignTimeRectangle="885, 686, 133, 44" ElementType="Button" FriendlyName="'ΚΛΕΙΣΙΜΟ'" FullSelectorArgument="&lt;webctrl aaname='ΚΛΕΙΣΙΜΟ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ΚΛΕΙΣΙΜΟ' type='' tag='BUTTON' class='confirm' check:innerText='ΚΛΕΙΣΙΜΟ' /&gt;" Guid="1365ac1e-f241-4eeb-aab0-69787c2b9b12" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIkAAAAwCAYAAAAl4Vl0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAOpSURBVHhe7ZhZSywxEIXv//9XvgmiDCqoOLjvy7jjbl++5lZTySQ1MA/TLfcc+DCdqu7E5Fgd+08jSTMkk0gz1ZlkaWlJiCmQTCJCkEwiQpBMIkKQTCJCkEwiQpBMIkKQTCJCkEwiQpBMIkKQTCJCkEwiQpBMIkKQTCJCkEwiQpBMIkLQ4EyysbHRrK6uTvWvr683o9Eo6SOP/OXl5aQfyCWWw3N8jr+mXboHVlZWujyu/RxtHj7Hw3P9OB7mcHR01JL/fkMADc4k6Pr6Ouk7Pj5ufn5+mp2dnaT/6empzT87O0v6fSzX+/t7kuOv397e/mVNizlYHvJzpI0uLy+7PmNzc7ON+XEAYz8/P7cxfjdAzKlk+r5AgzcJxmAB/SYBC/n9/d28vr42Ly8vSQxyA5TIc2pj5eRzpM1cSuNhnFKMsRlrb2+v66NNHzGf2ydo0Cah/H59fSUbYhwcHLSLv7+/3y7s2tpaEp/HJFCrWh4/R6DNs5jP7u5uksvzHx4eknEwAyqZkaqI8uf0BRqsSagUlP/aX9X9/X0XY3NOT0+T+LwmAcZn7FrZtznateVjhtvb266fjWZuNzc3yTiTyaT5/Pzsrj1WIckpxRcNGqxJ2EBrl/JYSDuLkGuGMbhmI05OThLynJqRIoPm86LNc6hqfvMxDGa2uPXzeqw9G6KxFw0apEl4xVDyHx8f25/5qZ/NQPaKwSzk+b98Fpk+Ns1jccupmcTOB1tbW1MxVDIJbcZgftammuQmoR2ZgBhGKcUWDRqkSRDvazadhc4XlFLMgdWu+fcTcU6xvsgARi3HzkJXV1dTMUA1k1A9eO2Mx+POlLlJGNfPP2eWiRYJGqRJ/HsdsyAW3fpYfL9JwKKzOXY9r0lmnYUA1Uyyvb3dvgrv7u66nNwkXOeVz6A65s/vEzTYM4nv4x1ui0z5RmyGz+EeNseu5zUJrzhMUtpAA/k50vbPwbCIbySluH07ubi46PoMDrnI7u0b9CtMgiEQZw+qjJXxUo6dBzDAx8dH98XUY/fkJrGqdXh4OHWP/2KKIpOcn5+3H8pqceujmpDLl1qgL39236BfYRLgvwQqBQahnceBmL1yMEBNlp+bhE2ryechP0fauQk8tTj9fkzapa+2fYIGZ5L/EatWpVjfIJlEhCCZRIQgmUSEIJlEhCCZRIQgmUSEIJlEhCCZRIQgmUSEIJlEhCCZRIQgmUSEIJlEhCCZRIQgmUSEoM4kklSTTCLNUNP8BWC7eu3L/ld/AAAAAElFTkSuQmCC" InformativeScreenshot="35e9cabb2dd99283f4632d545e4b1c74.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="Selector" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <ui:CommentOut sap2010:Annotation.AnnotationText="" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,360" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,250.4" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'ΚΛΕΙΣΙΜΟ' - Επισύναψη υπογεγραμμένου" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/100" DesignTimeRectangle="965, 411, 79, 33" ElementType="Button" FriendlyName="'ΚΛΕΙΣΙΜΟ'" FullSelectorArgument="&lt;webctrl parentname='UploadOrderReceiptDocumentForm' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='UploadOrderReceiptDocumentForm' tag='BUTTON' type='button' class='btn btn-grey btn-sm mr-0' aaname='ΚΛΕΙΣΙΜΟ' check:innerText='ΚΛΕΙΣΙΜΟ' /&gt;" Guid="e83506f5-b7e0-4794-8a94-9f3001f8a302" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAlCAYAAAA+ydXcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANASURBVGhD7ZdbTxRBEIX9wb76yJPxwWCiGBVDxBBJiMSAFxABEVEJiChqNCI3CRBEQdjltisCaT0VT6em6YW91JP2Sb7sdFXNTPfp6W445ZLMlMw0lDfz9Jm6RJVQyUwDqGSmAVQy0wAqmWkAlcw0gEpmGkAlMw2gkpkGUMlMA6hkpgFU1WZeaWpxZ+sbMrHGm63ufEOjb1+8ekPqdA1ADLUaPgu/vAfXYR3Ac5GvO3dB2nwu4sxp0Cddp+PdfU8E3e9Koao2c3Nr2w0MDfv2uw+fXC6/KQNkbH0j5w4PDzMxgHv39vZcoVD0PHr8VHJ4JvK4vv+wX/pWLP7M1E7PfpF86+0OyfO5i0vLrlAs+jZZ+baaqQNjr9+6g4MDt/Zj3W3k8tJPxHRNuVAmZuIX5lxqbPb5a823ZGAYSE//oI+DcCI02kyASYJJuobEzNzdLbiu3gEfQz/wPF2HPMxru3PPx9o7uyTW8aDHx8qFqtlMdAgzrDsGMMszc/PyOze/kMlVYiaASTBVx0DMTLxTv2984r3EwrrJqRnfJriv1MQdB1WTmSNjb+SLXFpeOZJfW98QYzDgX/v7mRzu/Tw964ZejAqdXb0+FzMT2wS2kHACYmYOPh+Rr5NbC7YarAxdt7W9E51M3Bu+uxyomszEsvi68l3M0kur/vL1zF4ZLj3cu/pnr5pfWBRejk/4XMxMgInD3qZjMTNxP74w/CKPSQ3r0LeYmaXefRJUTWbywMFS1p0YHn0leyXbWFJYamyjNjYYEBsQthAcQnpPBqXMxMRhkrE1oC9hHZ6Pr5Btgtrw3eVAmRxAMBRtnoYYiD4ZMTh9yup7Q0IzYSC2Ev1lk1Jm4np7Z0cmG6skrMPEoo9sE8Rie+lJUCZmAgwWy721vUOWEU5RXY8cT8pKzMQyjR0+4DgzP05OSTtW19TSJn3E1sEYrhFDjrFyoczMBFjauXw+YwbBwDBAXCMfioZpM/sGn/3NHhXyx5mpCevA3e4+2TowyQDX+PNI15QLVbWZ/wr4byv2X1olUP+9mRZQyUwDqGSmAVQy0wAqmWkAlcw0gEpmGkAlMw2gkpkGUMlMA6hkpgGUNzOpdiUzzeTcb5EynV5GinmDAAAAAElFTkSuQmCC" InformativeScreenshot="4a1df224dd7f4d30356062361bb799d1.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <If Condition="[io_OrderNumber &lt;&gt; &quot;NotProcessed&quot;]" sap:VirtualizedContainerService.HintSize="483.2,606.4" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,416" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick sap2010:Annotation.AnnotationText="" ClickType="Single" DelayAfter="1" DisplayName="Click 'ΚΛΕΙΣΙΜΟ' - Uploading Succesfull" sap:VirtualizedContainerService.HintSize="333.6,188.8" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b8daa017-43b6-494a-91bb-8c2c60dd772e" Version="V1">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://apps.ekapy.gov.gr/pendingDocuments/overview/1/25" DesignTimeRectangle="899, 627, 111, 37" ElementType="Button" FriendlyName="'ΚΛΕΙΣΙΜΟ'" FullSelectorArgument="&lt;webctrl aaname='ΚΛΕΙΣΙΜΟ' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ΚΛΕΙΣΙΜΟ' tag='BUTTON' type='' class='confirm' check:innerText='ΚΛΕΙΣΙΜΟ' /&gt;" Guid="bec40f52-7215-4d30-88ad-28bee7b45bd4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHMAAAApCAYAAAAGVhZ3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANRSURBVHhe7ZjBSxtBFMb7x/lPePQoXvQkKOLJi+hBDx6EIujBIlUIttKmlWK1UottqaSRGqmWFmub2kiijam1U76Bb5gdd1NycDc+3gcf7ryZ3Zm838zbxDtGJUYKU5AczI67HepbakphCjClMAWYUpgCTClMAaYUpgBTClOAKYUpwJTCFGBKYQowpTAFmFKYAkwpTAGmMoPZ+6DXdOe6I7H+R/02znbnvU4zmB80Xfe7IuMYD404+vEc3oPrZmMxDmP4bMzvt2msFfeF8aEnQ2bp/ZI1rsP+NExlBnOvvGc2Djdce2FnwdQv66bvYZ+Lzb6ZNVd/r8z2l20Xg0efj9o11xq1iEeejdj+k18n9nm43v2+a5+RNBbjMJ7PxroafxoONn3w88DO6cfWPq7ZZ5d+lKwvry7NztedyJg0TLUFzPH1cZsI/PXHIDEAedY4i8QJ04/59mFic2CTsB06DuZx7TgyvifXY6oX1cicM69nLEh/zTjR2Ai5Ys7F0jCVOcxmyUZiBh4PWJhTL6dcvBWYcNJmgeNgYhPhJDK2vLtstj5vReZEf1gxYHymo+rRtfhNmsoU5uanTVM+L8eWNex8JhnJRTLZR5h8V8Fj62OuP4QJo43TFc4TBxMxbDCcSMQOK4dmcnPSzslxlXrl2hww1u2PS8NUpjBRpgATO9l/f8LY9QSIBAEE+wiz+K3oPP9u3vXHwQREAJh7OxeJJ8HE3PlS3lYG9kMch7XHwfxf1bgJU5nCPK2f2jKL8ofkDD8ddv1+aQUI9CNRaLdaZmHMF24YOAkmTiI2GYCu7q/aPn9O3IPyyzaNe1FpwvhNmmqLL0AwSiliuEYiw4TgHcXxrcLEfagAYYmFk2DiGl+EUBFwOtH25wzfq3ThuOA+R1qm2gYmTihOH0oqSlyYEJwCJr0VmDj14U8e381g4kTifck+f05UEax35cOKiy0WFiMVJC1TbQMTRklDYuO+XOB0QEgiYYbiPT5MnMg4cbM0gxka8tsTLyZM7aJmqwh8/vvcTL+ajoxJw1RmMCU56b9GaZlSmAJMKUwBphSmAFMKU4AphSnAlMIUYEphCjClMAWYUpgCTClMAaYUpgBTClOAKYUpwJSDqbr9UphiZMw/gNRVBud+vxgAAAAASUVORK5CYII=" InformativeScreenshot="f5bf1cbd9a6cbf01c7f6ff9f02ee6ca8.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;File Uploaded &quot; + io_orderNumber]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="200,85.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="475.2,590.4" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Reset the Flag OrderNumberNotFoundInTable" sap:VirtualizedContainerService.HintSize="433.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[OrderNumberNotFoundInTable]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[in_FolderRejectedPath + io_OrderNumber]" />
+                <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_FolderRejectedPath +  io_OrderNumber + &quot;_notFounInEKAPYsTable.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="MoveFile_1" Path="[in_CurrentFolderPath+ io_OrderNumber + &quot;.pdf&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,61.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[io_orderNumber]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">NotFound</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.TargetApp>
+      <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Firefox" IconBase64="AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAKBEAAJ4EAAAwMAAAAQAgAGgmAADGFQAAKAAAABAAAAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////f7+//3+/v/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////39nX/9vU0v/Z0c//4drZ//j49//w7ez//v////7////+/////v////7////+/////v////7////n4+L/4NnY/+Xg3//s6ej/8O3t/+nl5P/e19b/4tzb//Px8f/+/////v////7////+/////v////7////g2tn/497d/+nl5P/w7e3/5eLt/97a6f/p5er/5uLh/+Pe3f/j3t3//v////7////+/////v////7////+////6eXk/+Xg3//w7e3/9vX0/+3t/P/+////7Oz8//Px8P/s6ej/5N7d/9/Y1//+/////v////7////+////8/Hx/+nl5P/f2dj/5eLs/+Pg8P/09P3//v///+rp+//g3ev/8vH1/+zp6P/k397//f7+//7////+/////v////Du7f/d1tX/6ubl/+7t/P/+/////v////7////+/////v///+fl9f/k397/3tfV//n5+P/+/////v////7////v7ez/3dbV/+nm5f/u7fz//v////7////+/////v////7////p6Pf/5eDf/93W1P/5+fn//v////7////+////8/Hw/+rm5v/e19b/5+X1/+bj9P/5+f7//v///+zr+P/n5PT/7Orz/+vo5v/i3Nv//f7+//7////+/////v////7////o5OP/5N/e/+rm5f/08/L/7u78//7////r6fn/7+zr/+3q6v/k3t3/3tfW//7////+/////v////7////+////4NnY/+Pe3f/p5eT/7+3s/+Dc7v/m5PT/49/p/+fi4f/l397/497d//7////+/////v////7////+/////v////7////m4eD/4dva/+bh4P/s6ej/6ebl/+nl5P/f2Nf/4t3b//Dt7f/+/////v////7////+/////v////7////+/////v////7////g2tn/2dHQ/9vT0v/h29n/9fT0/+7r6v/+/////v////7////+/////v////7////+/////v////7////+/////v////v8/P/9/v7//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAACAAAABAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////r6+v/8/fz//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////3tjW//v7+//+////uaqn/8zCv//+////5eDf/7Cdmv/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7///+yoZ7/8e/u/7enpP/+/////v///5yFgf/8/Pz/8/Hx//Du7f/08/L/xbi1//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///8i9uv/p5OP/0sjG//Ty8v/+////3NXT/+jk4//a0tH/9vX1/97X1f/39/b/qJSQ//f39v/Rx8X//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////2tLQ//Hv7v/Tysj/9PPz/6+dmv/7+/v/8vDw//Hu7v/+////1s3L//r6+v/08/L/5eDf/9nRz//g2tn/4tza/+/s7P/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////P39//3+/v/CtLL/9PLy/8u/vf/x7+//+Pf3/+rn5v/i3Nr/8O7u/8/Fw//+////v7Gu//Hv7v/e2Nf/6ubl/+/s7P/Nw8H/4NrZ//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7///+Kb2r//Pz9/9LJx//8/Pz/6ufm/+Xg3//x7u7/7Ov8/93b+v/d2/r/3dv6/+jn/P/+/////v///83CwP/t6un/yLu5/+/s7P/x7+7//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////wLOw/+/t7P/Vy8r/3dbV//7////b2fr//v////7////+////5+f8//Dw/f/s6Oj/9/b2//z8/P/y8O//187N/93W1f/NwsD/8e/u//7////+/////v////7////+/////v////7////+/////v////7////+////qpeT/+rm5f/r6Of//v////7////+/////v///9/e+v/+/////v////7////z8/3/6Of8/+rm5f/+////6OPi/9zV0//f2Nf//f39/8zBv//x7+7//v////7////+/////v////7////+/////v////7////+////08rI/7Wkof/+////9fT0/9PJx//w7u3/2NDO/+bh4P/v7ez/3976//7////+/////v////Pz/f/k4fb/4t3b/+Xg3//29fX//v///9bOzP/z8fH/0MbE//7////+/////v////7////+/////v////7////+/////v////7////9/v7/+fn5//n5+f+4qKX//v///+7u/f/d2/r/3dv6/9nW+v/19f7//v////7////+/////P3//9TS+f/d2/r/3dv6/+rq/P/p5eT/8vDv//b19f/Vy8r/7uvq//z9/f/+/////v////7////+/////v////7////+/////v////7///+4qKX/29TT//Lw7//Yz87/3tv6//7////+/////v////7////+/////v////7////+/////v////7////+////3dv6/+7r6//08/L/tKOg//7///+tm5f/6ubl//7////+/////v////7////+/////v////7////+////yLy5//v7+//m4eD/7erp//Lw7//e3Pr//v////7////+/////v////7////+/////v////7////+/////v////7////d2/r/9fT0//Dt7f/5+fn/1MrI//n5+P/+/////v////7////+/////v////7////+/////v////7////Et7X/+/v7/+Te3f/r6Of/9vX1/97c+v/+/////v////7////+/////v////7////+/////v////7////+/////v///93b+v/x7+//6ufm//7////LwL3/9vb1//7////+/////v////7////+/////v////7////+/////v////7///+6qqf/3dbU//Hv7//UzMr/3tz6//7////+/////v////7////+/////v////7////+/////v////7////+////3dv6//v7+//9/v7/sJ6b//7///+0o6D/6+jn//7////+/////v////7////+/////v////7////+/////f7+//r6+v/5+fn/vrCt//7////a2Pr/3dv6/93b+v/n5vz//v////7////+/////v////7////r6vz/3dv6/93b+v/W1Pn/3dfV/+nl5P/4+Pf/3NXU/+fi4f/6+/r//v////7////+/////v////7////+/////v////7////SyMb/uKil//7////w7u7/zMG///Du7f/08/P/7enp/+bk8v/p6fz//v////7////+////+Pj+/9HL6P/t6un/9PLy//7////+////29TS//Du7f/IvLr//v////7////+/////v////7////+/////v////7////+/////v////7////+////qJSQ/+3q6f/u6+r//v///+bi4f/5+fn//P39/9/e+v/+/////v////7////z8/3/5uT5//v7+//j3t3/5+Pi/9vT0v/Wzcz//Pz8/9XMyv/08/L//v////7////+/////v////7////+/////v////7////+/////v////7////9/v7//v///7mpp//t6ur/1s3M/93W1f/+////3976//7////+/////v////Pz/f/f3PD/4tzb//v7+//9/v7/9/b2/9vU0//i3Nv/wbSx/+7r6v/+/////v////7////+/////v////7////+/////v////7////+/////v///41ybf/9/v7/18/O//z9/f/w7u3/6OTj//Py8f/U0fn/3dv6/93b+v/d2/r/1tP5//j5/v/+////yb26/+3p6f/DtbP/6eTj/+zp6P/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////9/b1//z9/f+8rar/8e/v/8e7uf/t6en/9fTz/+rm5f/l4N///f7+/+Pe3f/+////wLKw//Px8P/j3dz/7+3s//Ty8v/Sycf/5+Lh//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///9vU0v/18/P/2tLR//f39/+wnpv/+Pj3//Hv7v/08/L/3tfW/9vT0f/8/f3/8vDv/+Hb2v/Sycf/39jX/9nR0P/q5uX//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////wLKw/+rn5v/Mwb//9PPz//z9/f/k397/5N/e/9bOzP/+////1s3M//f29v+xn5v/+Pj4/9rT0f/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7///+5qab/9vX1/7Cem//+/////v///5iBfP/9/v7/+Pj4/+nl5P/x7+7/v7Ct//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///9jQzv/7+/v//v///7mppv/Xz83//v///+Lc2/+smZX//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////9PPy//r6+v/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAADAAAABgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////8/Hx//j5+P/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////f29v/19PT//v////7////5+fn/iW1o/6KNif/+/////v////j39/+4qKb/2NDP//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///7eno/+yoZ3/+fj4//n4+P/39/f/zsPB/9zV0//s6ej/29TS//f39/+7q6j/18/N//7////+/////v////n5+f/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///9zV1P/Wzs3//P39/5eAfP/EtrT//v////7////Et7X/im5p//7////6+vr//P39/+Da2f/39/b/497c/4xybP/h29r//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////6+vr/2dHQ//Du7f/7+/v/6ubl//j4+P/+/////v///8i8uv/f2dj/7+3t/+Tf3f/49/f/8e/v//f39//08/P/9PPy/4BiXP/VzMr/6+jn/56IhP/p5eT//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////t6en/iW1o/8a6t//r6Of/h2tl/93W1f/o5OP/zsPB//7////+////z8XE/7GfnP/+/////v///9HHxv++r6z/+/v7/97X1v/29fX//v////3+/v/4+Pj//f7+//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////8/Pz/7enp//f29v/7+/v/6ubm//n4+P/d1tT/tqaj//z9/f/x7u7/9/f2//f29f/+/////v////b09P/y8PD//v7+//n4+P/FuLb/8O3t/+vn5v+Xfnr/7+zr/+vo5v+5qKb/9vX0//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////f7+//7////x7+//6+jn//3+/v/k397/8vDw//39/f/49/f//f7+//Ty8v+zop7/7+zs//j49/+0pKD/6+jn//7////o5OL/xLe1//f29v+1paH/6+fn//Px8f/Ft7X/9vX0/9zV1P+ReHP/7+zs//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////i3Nv/uquo//z8/P/Bs7H/o46L//r6+v+7rKn/29PS//Hv7//FuLb/+Pf3//7+/v/7+/v//f7+//39/f/q5+b/+fj4//7////t6un/08rI//7////8/f3/+vr6//3+/v/y8PD/+/v7//z8/P/z8vH//f39//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////MwsD/h2xn//v8/P/19PT/8e/v//7////39/b/+/v7//v7+//x7+7//f39/+7t/P/Jxfj/yMP4/8jD+P/Iw/j/yMP4/87K+P/19f7//v////7////Y0M7/saCc//X09P+jjor/1MvJ//b19P/PxcP/9/b2//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////u6+v/5N/d//r6+v/Ow8L/8vDw//j49//w7u3//v///8G89v/8/f///v////7////+/////v////T0/v/X1fr/+/z///f29v/29fT/8u/v//3+/v/n4uH/9/X1/+vn5v+TeXX/7erp//Px8f/t6ur//f39//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////19PP/wLKv/+zp6P/Wzcv/uKil//v7+//c1dP/9vX0//Hv7v/i3Nv//v///8vI+P/+/////v////7////+/////v////r7/v/d2/r/9/f+/9LJx//v7Oz//v////v7+//k397/+fn4//z8/P/18/P//f7+/76vrP+bhH//9fT0//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////u6+v/jXNt/9/Y1//6+/v/+Pj4//7////+/////v////7////+/////v///8vI+P/+/////v////7////+/////v////r7/v/d2/r/9/f+//b19f/7/Pz//v////b19f/CtbL/8vDv/93W1P/Uy8r//f7+//Px8f/s6Of//f39//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////v7Gu/5N7dv/5+Pj//v////r6+f/+////va6r/+rn5v/s6ej/2dHP//b19f/Y0c//+fn5/8vI+P/+/////v////7////+/////v////r7/v/d2/r/8vL5/+Da2P/+////497d//f29v/+/////v///9PJx//Jvbr/+Pf3/+nl5P/6+/v//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////08vI/7qrqP/6+vr/9/b2/6+cmf/v7Oz/1czK//Du7v/08/L/6ubl//r6+v/q5uX/7u36/9bT+f/+/////v////7////+/////v////z8///c2vr/7u31/9vU0v/+////3tfW//Ty8v/+/////v////7////+////4dva/4ZqZf/r5+b//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////f7+//v8/P/8/f3/+/v7/7ysqv/z8vL//v////X1/v/Jxfj/yMP4/8jD+P/IxPj/zMn4//n6/v/+/////v////7////+/////v////7////o6Pz/ysb4/8jD+P/Iw/j/yMP4/8zJ+P/7/P//xbi2/9zV0//+////+vn5/+vn5v/39/b/1s3L//n5+f/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///93W1P+VfXj/8vDv//39/f/q5+b/+Pj4/9za+v/v7v3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Dw/f/f3fv/0snH/+Pd3P/g2tn/0MbE//7////g2tn/gWRf/9HHxv/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Du7v/Rx8X/+fn4//n5+f/Asq//7erp/9fT+f/09P3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Pz/f/d2/r//v////7////c1dT/yb26//7////5+fj/2dDP//b19f/+/////v////7////+/////v////7////+/////v////7////+/////v////7////c1dP/ln15//b19P/+////vK2q/9bNy//5+fn//f39/9fT+f/09P3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Pz/f/d2/r/5uHg/9fOzP/9/v7//f39/87Dwf/BtLH/+/z7//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////Z0M//kHdy//b19f/+////taSi/87Dwf/7+/v//f7+/9fT+f/09P3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Pz/f/d2/r/29TT/8i8uf/+/////v///8K1sf+1pKH/+vr6//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v7///Lw7//Xzsz/+vr5//n5+f/Et7T/7erp/9fT+f/09P3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Pz/f/d2/r//v////7////h29r/08nI//7////7+/v/4dva//n5+f/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///9rS0f+Te3b/8e/v//z9/f/n4+L/9/f2/9fT+f/09P3//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Pz/f/d2/r/9vX1//v8/P/Y0M7/xbi1//7////h29n/hGhi/9HIxv/+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////f7+//z8/P/7/Pz/+/z8/8i8uv/29vX//v///9za+v/o5/z/8/P9//Pz/f/z8/3/+fn+//7////+/////v////7////+/////v////7////9/v//9fX+//Pz/f/z8/3/8/P9/+rp/P/i4Pv/sJ6a/8u/vf/+////+/v7/+7r6//19PP/xrq4//Tz8//+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////1MvJ/76vrP/8/Pz/9/X1/6iUkP/v7Ov/1MvJ/+vp8P/b2Pr/3dv6/93b+v/d2/r/1dP5//X1/v/+/////v////7////+/////v////7////n5vz/29n6/93b+v/d2/r/3dv6/93b+//5+v7/9fT0//n6+f/+////4NrZ/41zbv/r5+b//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////uqqo/5Z9eP/6+vn//v////f29v/9/v7/rJiV/+fi4f/z8vH/8vDv//Tz8//Tysj/8O/4/9HP+f/+/////v////7////+/////v////v8///c2vr/zcPJ/8/Fw//5+Pj/6eXk//7////+/////v///9jQz//PxcP/9vX1/9zU0//6+vr//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////t6ur/kXdy/+Xg3//7+/v/+fn5//7////l39//39jW//v8/P/z8vH//f7+/8vI+P/+/////v////7////+/////v////r7/v/d2/r/8e/2//b19f/v7Ov/yb27//f29v/Jvbv/8/Lx/9HGxf/Kvbv//f39//X09P/w7u3//f7+//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////z8fH/vK2q/+3q6f/SyMf/vK2q//v7+//f2df/9/b2/+/s6//l4N///v///8vI+P/+/////v////7////+/////v////r7/v/d2/r/8/P6//Du7f/+/////v////r6+v/e19X/9/f2//3+/v/7+/v//v///76wrf+giob/9fT0//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////o5OP/3tfX//n5+P/Jvbv/8e/v//f29v/w7u3//v///8vI+P/+/////v////7////+/////v////r7/v/d2/r/4t3k/8O2tP/8/Pz/+fj4//7////y8O//+vr6/+zo5/+ag37/7+zr/+zo5//f2Nb//P38//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////PxcP/lXx4//7+/v/29fX/8/Lx//7////5+fn//P39//z8/P/z8fH//f39/8fE9//z8/3/8/P9//Pz/f/z8/3/8/P9/+3t/f/d2/v/+/z///7////Yz83/sJ6a//b19P+jjor/1czL//Lw8P+9rqv/9PPy//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////c1dP/saCc//z9/f/AsrD/qJSQ//n5+f++sK3/3tfW//Hv7v/DtrP/9/f3/+rq/P/d2/r/3dv6/93b+v/d2/r/3dv6/9/d+//j3+r/29TS//7////6+vr/9vX0//3+/v/s6Oj/+Pj3//3+/v/6+vr//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////9/v7/+/z7//7////s6ej/5uHg//z9/f/e19b/7+zs//z9/P/19PT//f7+//Px8f+zop7/8O7t//7////Y0M7/5uHg//7////k397/vrCt//j39/++sK3/7+zs//b19f/VzMr/+Pj4/97W1f+bhID/8fDv//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////8/Pz/7uvq//n5+P/7/Pz/7erq//r7+v/g2tn/wLKv//v7+//m4eD/9/b2//n4+P/Rx8X/4NnY//b29f/08/L//v////f39v+6q6f/7erq/+nl5P+SeXT/7+zr/+Pd3P+lkIz/8/Hx//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////o5OP/i3Bq/9DGxP/p5eX/i3Br/+Pe3f/k393/yb26//7////+////0cjG/7mppv/+/////v///87Dwf/Asq///f39/+fi4f/5+fn//v////v8/P/y8PD//P39//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////4+Pf/zsTB//Hv7v/6+vr/6OTj//n4+P/+/////f7+/9LJx//p5eT/6eTj/9nR0P/+/////v////X09P/z8fH/8e/u/4NmYf/Xz83/7+zs/6+dmf/v7ez//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///+Pe3f/i3Nv//f7+/492cP/Hurj//v////7////CtbL/l397//7////8/Pz//f7+/9DGxP/19PP/29TS/4luaP/h29r//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///7Cemv+0o6D/+vr6//Dt7f/19PT/1czL/+nl5P/m4eD/08rI//j39//Bs7D/3dbV//7////+/////v7+//Du7f/9/v7//v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////Tz8//08/L//v////7////z8fH/hmpl/66cmP/+/////v////b19f+smZX/1MrJ//7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+////497c//Tz8//+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v////7////+/////v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" InformativeScreenshot="a58ea27596163a34b7cf3730a2500318.png" Selector="&lt;html app='firefox.exe' title='Εθνική Κεντρική Αρχή Προμηθειών Υγείας - ΕΚΑΠΥ' /&gt;" Url="[in_EkapyApplicationPendingDocumentsWidthURL]" />
+    </uix:NApplicationCard.TargetApp>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </uix:NApplicationCard>
+</Activity>

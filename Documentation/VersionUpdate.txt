@@ -1,0 +1,7 @@
+3/7/2026
+
+During the last week, after an studio update, 
+
+1. a compilation error was experienced for all my workflows ("invoked workflows are missing" – Error code 7). After a new sturio release this issued was solved. Check https://forum.uipath.com/t/uipath-studio-community-debug-works-a-few-times-then-suddenly-fails-with-invoked-workflows-are-missing-error-code-7/5756156
+
+2. another compilation error is experienced in the workflow which uses the REF template. The error is related with a variable used in the Test section of the template. Since, I do not use any functionality concerning testing, I removed the Test folder from the project folder and I removed the test cases from the project.json file.
