@@ -108,18 +108,18 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from the io_dt_TransactionData argument. &#xA;&#xA;The first time the workflow is executed, then the io_dt_TransactionData DataTable is created, containing two columns. The first column is the filename. The second column is the type of the document. The value of this field can be either &quot;Δελτίο Παραγγελίας&quot; or &quot;Πρακτικό Παραλαβής&quot;. The user has loaded the files to the in_Config(&quot;FolderPath&quot;).ToString\&quot;Document Type&quot; (either ΕΚΑΠΥ Δελτία Παραγγελίας\ or ΕΚΑΠΥ Πρακτικά Παραλαβής\). The automation renames the filenames according to the corresponding order number of each document and moves it to the FolderUploadingPath&#xA;&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. " DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="722,3717.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from the io_dt_TransactionData argument. &#xA;&#xA;The first time the workflow is executed, then the io_dt_TransactionData DataTable is created, containing two columns. The first column is the filename. The second column is the type of the document. The value of this field can be either &quot;Δελτίο Παραγγελίας&quot; or &quot;Πρακτικό Παραλαβής&quot;. The user has loaded the files to the in_Config(&quot;FolderPath&quot;).ToString\&quot;Document Type&quot; (either ΕΚΑΠΥ Δελτία Παραγγελίας\ or ΕΚΑΠΥ Πρακτικά Παραλαβής\). The automation renames the filenames according to the corresponding order number of each document and moves it to the FolderUploadingPath&#xA;&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. " DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="722,4322.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="652,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
-    <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="652,2452.8" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
+    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="526.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
+    <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="526.4,2522.4" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <TryCatch DisplayName="Try Catch Get transaction item" sap:VirtualizedContainerService.HintSize="500.8,2176" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch Get transaction item" sap:VirtualizedContainerService.HintSize="500.8,2245.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <TryCatch.Try>
               <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="499.2,1764.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <Sequence.Variables>
@@ -189,21 +189,11 @@
                       </ui:MultipleAssign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Rename PDF Files from the &quot;Δελτία Παραλαβής&quot; Folder" sap:VirtualizedContainerService.HintSize="430.4,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="WorkFlows EKAPY Uploading\Rename PDF Files from a Folder.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:Double" x:Key="in_OCRScale">
-                            <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="OCRScale" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_Pattern">
-                            <Literal x:TypeArguments="x:String">123-</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderUploadingPath">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderUploadingPath" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderPath" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderRejectedPath">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderRejectedPath" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:Double" x:Key="in_OCRScale">[OCRScale]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Pattern">123-</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderUploadingPath">[FolderUploadingPath]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[FolderPath]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderRejectedPath">[FolderRejectedPath]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Load the &quot;Δελτία Παραγγελίας&quot; on DataTable " sap:VirtualizedContainerService.HintSize="430.4,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="WorkFlows EKAPY Uploading\Load the DataTable.xaml">
@@ -245,10 +235,21 @@
                       </ui:MultipleAssign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Rename PDF Files from the &quot;Πρωτόκολλα Παραλαβής&quot; Folder" sap:VirtualizedContainerService.HintSize="430.4,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="WorkFlows EKAPY Uploading\Rename PDF Files from a Folder.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_Pattern">123-</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderUploadingPath">[FolderUploadingPath]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[FolderPath]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderRejectedPath">[FolderRejectedPath]</InArgument>
+                          <InArgument x:TypeArguments="x:Double" x:Key="in_OCRScale">
+                            <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="OCRScale" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Pattern">
+                            <Literal x:TypeArguments="x:String">123-</Literal>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderUploadingPath">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderUploadingPath" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderPath" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FolderRejectedPath">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderRejectedPath" />
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Load the &quot;Πρωτόκολλα Παραλαβής&quot; on DataTable " sap:VirtualizedContainerService.HintSize="430.4,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="WorkFlows EKAPY Uploading\Load the DataTable.xaml">
@@ -258,7 +259,7 @@
                           <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_TransactionData">[io_dt_TransactionData]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="This activity could be changed to log message activity" AutoCloseAfter="00:00:00" DisplayName="Message Box - The total number of the renamed files" sap:VirtualizedContainerService.HintSize="430.4,153.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[io_dt_TransactionData.RowCount.ToString]">
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="This activity could be changed to log message activity" AutoCloseAfter="00:08:00" DisplayName="Message Box - The total number of the renamed files" sap:VirtualizedContainerService.HintSize="430.4,153.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[io_dt_TransactionData.RowCount.ToString]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -310,15 +311,15 @@
         <ActivityFunc x:TypeArguments="x:Boolean" />
       </ui:RetryScope.Condition>
     </ui:RetryScope>
-    <If Condition="[in_TransactionNumber &lt;= io_dt_TransactionData.Rows.Count]" DisplayName="If rows to proceed" sap:VirtualizedContainerService.HintSize="652,312" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[in_TransactionNumber &lt;= io_dt_TransactionData.Rows.Count]" DisplayName="If rows to proceed" sap:VirtualizedContainerService.HintSize="526.4,589.6" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
             </Assign.To>
@@ -329,13 +330,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_9">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
             </Assign.To>
@@ -346,21 +347,21 @@
         </Sequence>
       </If.Else>
     </If>
-    <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="652,677.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="526.4,935.2" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="304,396.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="452,605.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign out_TransactionID" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Assign out_TransactionID" sap:VirtualizedContainerService.HintSize="418.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_TransactionID]</OutArgument>
             </Assign.To>
@@ -368,7 +369,7 @@
               <InArgument x:TypeArguments="x:String">[now.ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign out_TransactionField1" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign DisplayName="Assign out_TransactionField1" sap:VirtualizedContainerService.HintSize="418.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_TransactionField1]</OutArgument>
             </Assign.To>
@@ -376,7 +377,7 @@
               <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign out_TransactionField2" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign DisplayName="Assign out_TransactionField2" sap:VirtualizedContainerService.HintSize="418.4,165.6" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_TransactionField2]</OutArgument>
             </Assign.To>

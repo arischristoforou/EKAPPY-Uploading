@@ -1,5 +1,15 @@
 {
-  "Tags": [],
+  "Tags": [
+    {
+      "Key": "EKAPY"
+    },
+    {
+      "Key": "GNX"
+    },
+    {
+      "Key": "FARMACY"
+    }
+  ],
   "SeparateRuntimeDependencies": true,
   "IncludeSources": true,
   "ConnectorKeys": []
